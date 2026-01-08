@@ -90,7 +90,7 @@ if (!isset($_SESSION['username'])) {
 				<a href="https://twitter.com/udinusofficial"><i class="bi bi-twitter h2 p-2 text-dark"></i></a>
 				<a href="https://wa.me/+62812685577"><i class="bi bi-whatsapp h2 p-2 text-dark"></i></a>
 			</div>
-			<div>Aprilyani Nur Safitri &copy; 2023</div>
+			<div>Ahmad Nadim &copy; 2024</div>
     </footer>
     <!-- footer end -->
 

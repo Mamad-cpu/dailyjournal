@@ -138,13 +138,13 @@
               <img src="img/abstract.avif" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img src="img/gal2.jpg" class="d-block w-100" alt="..." />
+              <img src="img/home.jpg" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img src="img/gal4.jpg" class="d-block w-100" alt="..." />
+              <img src="img/pool.jpg" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img src="img/gal5.jpg" class="d-block w-100" alt="..." />
+              <img src="img/cat.avif" class="d-block w-100" alt="..." />
             </div>
           </div>
           <button
@@ -257,14 +257,14 @@
         <div class="d-sm-flex align-items-center justify-content-center">
           <div class="p-3">
             <img
-              src="img/profil.png"
+              src="img/town.jpg"
               class="rounded-circle border shadow"
               width="300"
             />
           </div>
           <div class="p-md-5 text-sm-start">
             <h3 class="lead">A11.2023.12345</h3>
-            <h1 class="fw-bold">Aprilyani Nur Safitri</h1>
+            <h1 class="fw-bold">Ahmad Nadim</h1>
             Program Studi Teknik Informatika<br />
             <a href="https://dinus.ac.id/" class="fw-bold text-decoration-none"
               >Universitas Dian Nuswantoro</a
@@ -287,7 +287,7 @@
           ><i class="bi bi-whatsapp h2 p-2"></i
         ></a>
       </div>
-      <div>Aprilyani Nur Safitri &copy; 2023</div>
+      <div>Ahmad Nadim &copy; 2024</div>
     </footer>
     <!-- footer end -->
 
