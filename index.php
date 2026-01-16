@@ -110,7 +110,7 @@
                     <!-- Coll Begin -->
                     <article class="col">
                         <div class="card h-100">
-                            <img src="img <?= $row["gambar"] ?>" height="500" class="object-fit-cover d-block w-100">
+                            <img src="img/<?= $row["gambar"]?>" height="500" class="object-fit-cover d-block w-100">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $row["judul"] ?></h5>
                                 <p class="card-text"><?= $row["isi"] ?></p>
@@ -263,19 +263,20 @@
     <!-- about me begin -->
     <section id="aboutme" class="text-center p-5 bg-danger-subtle">
       <div class="container">
-        <div class="d-sm-flex align-items-center justify-content-center">
+        <div class="d-md-flex align-items-center justify-content-center">
           <div class="p-3">
             <img
               src="img/town.jpg"
-              class="rounded-circle border shadow"
-              width="300"
+              class="rounded-circle border shadow foto-zoom"
+              width="200"
+              height="auto"
             />
           </div>
-          <div class="p-md-5 text-sm-start">
+          <div class="p-md-5 text-md-start">
             <h3 class="lead">A11.2023.12345</h3>
             <h1 class="fw-bold">Ahmad Nadim</h1>
             Program Studi Teknik Informatika<br />
-            <a href="https://dinus.ac.id/" class="fw-bold text-decoration-none"
+            <a href="https://dinus.ac.id/" class="fw-bold text-decoration-none link-dark"
               >Universitas Dian Nuswantoro</a
             >
           </div>

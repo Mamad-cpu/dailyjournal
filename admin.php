@@ -49,13 +49,13 @@ if (!isset($_SESSION['username'])) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-dark">
 			<li class="nav-item">
-				<a class="nav-link" href="admin.php?page=Dashboard">Dashboard</a>
+				<a class="nav-link" href="admin.php?page=dashboard">Dashboard</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="admin.php?page=Article">Article</a>
+				<a class="nav-link" href="admin.php?page=article">Article</a>
 			</li>
             <li class="nav-item">
-				<a class="nav-link" href="admin.php?page=Gallery">Gallery</a>
+				<a class="nav-link" href="admin.php?page=gallery">Gallery</a>
 			</li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,7 +84,7 @@ if (!isset($_SESSION['username'])) {
             }
 
             echo '<h4 class="lead display-6 pb-2 border-bottom border-danger-subtle">' . $page . '</h4>';
-            include($page . ".php");
+            include(strtolower($page) . ".php");
             ?>
         </div> 
     </section>
