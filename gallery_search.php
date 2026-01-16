@@ -1,18 +1,17 @@
-                
-                    <?php
+<?php
                         include "koneksi.php";
 
                         $keyword = $_POST['keyword'];
 
-                        $sql = "SELECT * FROM articles
-                                WHERE judul LIKE ? OR isi LIKE ? OR tanggal LIKE ? OR username LIKE ?
+                        $sql = "SELECT * FROM gallery
+                                WHERE deskripsi LIKE ? OR tanggal LIKE ? OR username LIKE ?
                                 ORDER BY tanggal DESC";
 
                         $stmt = $conn->prepare($sql);
                         $search = "%" . $keyword . "%";
-                        $stmt->bind_param("ssss", $search, $search, $search, $search);
+                        $stmt->bind_param("sss", $search, $search, $search);
                         $stmt->execute();
-                
+
                         $hasil = $stmt->get_result();
 
                         $no = 1;
@@ -21,16 +20,15 @@
 		            	<tr>
                             <td><?= $no++ ?></td>
                             <td>
-                                <strong><?= $row["judul"] ?></strong>
+                                <strong><?= $row["deskripsi"] ?></strong>
                                 <br>pada : <?= $row["tanggal"] ?>
                                 <br>oleh : <?= $row["username"] ?>
                             </td>
-                            <td><?= $row["isi"] ?></td>
                             <td>
                                 <?php
                                     if ($row["gambar"] != '') {
                                         if (file_exists('img/' . $row["gambar"] . '')) { 
-                                            echo '<img src="img/' . $row["gambar"] . '" class="img-fluid" alt="Gambar Artikel">'; 
+                                            echo '<div style="width: 500px; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;"><img src="img/' . $row["gambar"] . '" style="width: 100%; height: 100%; object-fit: cover;" alt="Gambar Gallery"></div>'; 
                                         }
                                     }
                                 ?>
@@ -44,19 +42,15 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Article</h1>
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Gambar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <form method="post" action="" enctype="multipart/form-data">
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="judul" class="form-label">Judul</label>
+                                                    <label for="deskripsi" class="form-label">Deskripsi</label>
                                                     <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                                    <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="isi">Isi</label>
-                                                    <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
+                                                    <input type="text" class="form-control" name="deskripsi" placeholder="Tuliskan Deskripsi Gambar" value="<?= $row["deskripsi"] ?>" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="gambar" class="form-label">Ganti Gambar</label>
@@ -67,7 +61,7 @@
                                                     <?php
                                                     if ($row["gambar"] != '') {
                                                         if (file_exists('img/' . $row["gambar"] . '')) { 
-                                                            echo '<br><img src="img/' . $row["gambar"] . '" class="img-fluid" alt="Gambar Artikel">';
+                                                            echo '<br><img src="img/' . $row["gambar"] . '" class="img-fluid" style="max-width: 200px;" alt="Gambar Gallery">';
                                                         }
                                                     }
                                                     ?>
@@ -89,13 +83,13 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Article</h1>
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Gambar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <form method="post" action="" enctype="multipart/form-data">
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus artikel "<strong><?= $row["judul"] ?></strong>"?</label>
+                                                    <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus gambar "<strong><?= $row["deskripsi"] ?></strong>"?</label>
                                                     <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                     <input type="hidden" name="gambar" value="<?= $row["gambar"] ?>">
                                                 </div>
@@ -114,4 +108,3 @@
                     <?php
                     }
                     ?>
-                

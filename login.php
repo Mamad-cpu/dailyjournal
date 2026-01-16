@@ -120,6 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $hasil->fetch_array(MYSQLI_ASSOC);
 
     if (!empty($row)) {
+        $_SESSION['user_id'] = $row['id'];        // ← Tambah ini
         $_SESSION['username'] = $username;
         header("location:admin.php");
     }else{

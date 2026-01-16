@@ -134,18 +134,27 @@
         <h1 class="fw-bold display-4 pb-3">gallery</h1>
         <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/abstract.avif" class="d-block w-100" alt="..." />
+            <?php
+                $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+                $hasil = $conn->query($sql); 
+                $active = "active";
+                while ($row = $hasil->fetch_assoc()){
+            ?>
+            <div class="carousel-item <?= $active ?>">
+              <img
+                src="img/<?= $row["gambar"] ?>"
+                class="d-block w-100 h-300"
+                style="height: 500px; width: ; object-fit: cover;"
+                alt="Gambar Gallery"
+              />
+              <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-2">
+                <h5><?= $row["deskripsi"] ?></h5>
+              </div>
             </div>
-            <div class="carousel-item">
-              <img src="img/home.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/pool.jpg" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="img/cat.avif" class="d-block w-100" alt="..." />
-            </div>
+            <?php 
+                $active = "";
+                }
+            ?>
           </div>
           <button
             class="carousel-control-prev"
